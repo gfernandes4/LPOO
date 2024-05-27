@@ -1,0 +1,5 @@
+-------------------------------
+PARA RODAR OS EXECUTAVEIS:
+compila: javac main/Main.java
+executa: java main.Main
+-------------------------------
