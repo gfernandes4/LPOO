@@ -68,26 +68,37 @@ public class Main {
                 ArmaMago armaMago;
                 if (armaTipo == 1) {
                     armaMago = new Transmutacao();
-                } else {
+                    return new Mago(saude, forca, destreza, armaMago);
+                } else if (armaTipo == 2) {
                     armaMago = new Psikappa();
+                    return new Mago(saude, forca, destreza, armaMago);
+                } else {
+                    throw new IllegalArgumentException("Tipo de arma inválida");
                 }
-                return new Mago(saude, forca, destreza, armaMago);
+                
             case 2: // Paladino
                 ArmaPaladino armaPaladino;
                 if (armaTipo == 1) {
                     armaPaladino = new Espada();
-                } else {
+                    return new Paladino(saude, forca, destreza, armaPaladino);
+                } else if (armaTipo == 2) {
                     armaPaladino = new Lanca();
+                    return new Paladino(saude, forca, destreza, armaPaladino);
+                } else {
+                    throw new IllegalArgumentException("Tipo de arma inválida");
                 }
-                return new Paladino(saude, forca, destreza, armaPaladino);
+
             case 3: // Clerigo
                 ArmaClerigo armaClerigo;
                 if (armaTipo == 1) {
                     armaClerigo = new Martelo();
-                } else {
+                    return new Clerigo(saude, forca, destreza, armaClerigo);
+                } else if (armaTipo == 2) {
                     armaClerigo = new Maca();
+                    return new Clerigo(saude, forca, destreza, armaClerigo);
+                } else {
+                    throw new IllegalArgumentException("Tipo de arma inválida");
                 }
-                return new Clerigo(saude, forca, destreza, armaClerigo);
             default:
                 throw new IllegalArgumentException("Tipo de personagem inválido");
         }
