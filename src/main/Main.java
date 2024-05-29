@@ -49,6 +49,7 @@ public class Main {
 
             // Imprimir o status dos personagens após o ataque
             System.out.println("\nStatus após o ataque:");
+            
             p1.printStatus();
             p2.printStatus();
         }
@@ -75,7 +76,7 @@ public class Main {
                 } else {
                     throw new IllegalArgumentException("Tipo de arma inválida");
                 }
-                
+
             case 2: // Paladino
                 ArmaPaladino armaPaladino;
                 if (armaTipo == 1) {

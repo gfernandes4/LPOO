@@ -22,44 +22,41 @@ public abstract class Personagem {
     // metodo que mostra o status do personagem
     public void printStatus() {
         if (saude < 1.0) {
-            System.out.printf("%s [Morreu, Forca: %.1f, Destreza: %.1f, %s]\n", nomeTipo, forca, destreza, arma.getNome());
+            System.out.printf("%s [Morreu, Forca: %.1f, Destreza: %.1f, %s]\n", nomeTipo, forca, destreza,
+                    arma.getNome());
 
         } else {
-            System.out.printf("%s [Saude: %.1f, Forca: %.1f, Destreza: %.1f, %s]\n", nomeTipo, saude, forca, destreza, arma.getNome());
+            System.out.printf("%s [Saude: %.1f, Forca: %.1f, Destreza: %.1f, %s]\n", nomeTipo, saude, forca, destreza,
+                    arma.getNome());
         }
     }
 
     // metodo para atacar o personagem
-    
-    
-    public void atacar(Personagem personagem) {
+
+    public void atacar(Personagem b) {
         System.out.printf("=========================================\n");
         if (this.estaMorto()) {
             System.out.printf("O %s não consegue atacar, pois está morto.\n", this.nomeTipo);
             return;
         }
 
-        System.out.printf("O %s ataca o %s com %s.\n", this.nomeTipo, personagem.nomeTipo, this.arma.getNome());
+        System.out.printf("O %s ataca o %s com %s.\n", this.nomeTipo, b.nomeTipo, this.arma.getNome());
 
-        if (personagem.estaMorto()) {
-            System.out.printf("Pare! O %s já está morto!\n", personagem.nomeTipo);
+        if (b.estaMorto()) {
+            System.out.printf("Pare! O %s já está morto!\n", b.nomeTipo);
             return;
         }
-        if (this.forca > personagem.forca && this.destreza > personagem.destreza) {
+        if (this.forca > b.forca && this.destreza > b.destreza) {
             double dano = this.calculaDano();
-            personagem.recebeDano(dano);
-            if (personagem.estaMorto()) {
-                System.out.printf("O ataque foi efetivo com %.1f pontos de dano!\n", dano);
-            } else {
+            b.recebeDano(dano);
+            if (b.estaMorto()) {
                 System.out.printf("O ataque foi efetivo com %.1f pontos de dano!\n", dano);
             }
-        } else if (this.forca < personagem.forca || this.destreza < personagem.destreza) {
-            double dano = personagem.calculaDano();
+        } else if (this.forca < b.forca || this.destreza < b.destreza) {
+            double dano = b.calculaDano();
             this.recebeDano(dano);
-            if (this.estaMorto()) {
-                System.out.printf("O %s já está morto!%n", this.nomeTipo);
-            } else {
-                System.out.printf("O ataque foi inefetivo e revidado com %.1f pontos de dano!%n", dano);
+            if (!this.estaMorto()) {
+                System.out.printf("O ataque foi inefetivo e revidado com %.1f pontos de dano!\n", dano);
             }
         } else {
             System.out.println("O ataque foi defendido, ninguém se machucou!");
