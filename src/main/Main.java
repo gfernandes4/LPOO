@@ -24,34 +24,51 @@ public class Main {
         // Processar a sequência de ataques
         while (true) {
             System.out.println("Digite a sequência de ataques (atacante defensor) ou 0 para terminar:");
-            int atacanteIndex = scanner.nextInt();
-            if (atacanteIndex == 0)
+            int aIndex = scanner.nextInt();
+            if (aIndex == 0)
                 break;
-            int defensorIndex = scanner.nextInt();
+            int bIndex = scanner.nextInt();
 
-            Personagem atacante;
-            Personagem defensor;
+            Personagem a;
+            Personagem b;
 
-            if (atacanteIndex == 1) {
-                atacante = p1;
+            if (aIndex == 1) {
+                a = p1;
             } else {
-                atacante = p2;
+                a = p2;
             }
 
-            if (defensorIndex == 1) {
-                defensor = p1;
+            if (bIndex == 1) {
+                b = p1;
             } else {
-                defensor = p2;
+                b = p2;
             }
 
             // Atacante realiza o ataque
-            atacante.atacar(defensor);
+            a.atacar(b);
 
             // Imprimir o status dos personagens após o ataque
             System.out.println("\nStatus após o ataque:");
+
+            // Se 'a' ataca 'b', aparece primeiro o status de 'a'
+            if (aIndex == 1) {
+                a = p1;
+                p1.printStatus();
+                // Se não, 'a' se defende de 'b'
+            } else {
+                a = p2;
+                p2.printStatus();
+            }
             
-            p1.printStatus();
-            p2.printStatus();
+            // Se 'b' ataca 'a', aparece primeiro o status de 'b'
+            if (bIndex == 1) {
+                b = p1;
+                p1.printStatus();
+                // Se não, 'b' se defende de 'a'
+            } else {
+                b = p2;
+                p2.printStatus();
+            }
         }
 
         scanner.close();
@@ -67,6 +84,7 @@ public class Main {
         switch (tipo) {
             case 1: // Mago
                 ArmaMago armaMago;
+                // Verificando o tipo de arma
                 if (armaTipo == 1) {
                     armaMago = new Transmutacao();
                     return new Mago(saude, forca, destreza, armaMago);
@@ -79,6 +97,7 @@ public class Main {
 
             case 2: // Paladino
                 ArmaPaladino armaPaladino;
+                // Verificando o tipo de arma
                 if (armaTipo == 1) {
                     armaPaladino = new Espada();
                     return new Paladino(saude, forca, destreza, armaPaladino);
@@ -91,6 +110,7 @@ public class Main {
 
             case 3: // Clerigo
                 ArmaClerigo armaClerigo;
+                // Verificando o tipo de arma
                 if (armaTipo == 1) {
                     armaClerigo = new Martelo();
                     return new Clerigo(saude, forca, destreza, armaClerigo);
