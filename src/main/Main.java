@@ -75,10 +75,15 @@ public class Main {
     }
 
     private static Personagem criarPersonagem(Scanner scanner) {
+        //escolhe o personagem
         int tipo = scanner.nextInt();
+        //define a saude
         double saude = scanner.nextDouble();
+        //define a forca
         double forca = scanner.nextDouble();
+        //define a destreza
         double destreza = scanner.nextDouble();
+        //escolhe a arma
         int armaTipo = scanner.nextInt();
 
         switch (tipo) {

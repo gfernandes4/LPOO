@@ -35,6 +35,7 @@ public abstract class Personagem {
 
     public void atacar(Personagem b) {
         System.out.printf("=========================================\n");
+        
         if (this.estaMorto()) {
             System.out.printf("O %s não consegue atacar, pois está morto.\n", this.nomeTipo);
             return;
@@ -46,13 +47,13 @@ public abstract class Personagem {
             System.out.printf("Pare! O %s já está morto!\n", b.nomeTipo);
             return;
         }
-        if (this.forca > b.forca && this.destreza > b.destreza) {
+        if (this.destreza > b.destreza) {
             double dano = this.calculaDano();
             b.recebeDano(dano);
             if (b.estaMorto()) {
                 System.out.printf("O ataque foi efetivo com %.1f pontos de dano!\n", dano);
             }
-        } else if (this.forca < b.forca || this.destreza < b.destreza) {
+        } else if (this.destreza < b.destreza) {
             double dano = b.calculaDano();
             this.recebeDano(dano);
             if (!this.estaMorto()) {

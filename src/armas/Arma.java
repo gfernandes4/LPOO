@@ -10,7 +10,7 @@ public abstract class Arma {
     }
     
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public double getModificadorDano(){
