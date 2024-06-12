@@ -1,6 +1,8 @@
 package armas;
 public class Maca extends ArmaClerigo {
+    // contrutor da classe Maca
     public Maca() {
-        super("Maca", 0.4);
+        // invoca o contrutor da superclasse ArmaClerigo
+        super("Maça", 0.4);
     }
 }

@@ -45,10 +45,12 @@ public class Main {
             }
 
             // Atacante realiza o ataque
+
             a.atacar(b);
 
             // Imprimir o status dos personagens após o ataque
             System.out.println("\nStatus após o ataque:");
+
 
             // Se 'a' ataca 'b', aparece primeiro o status de 'a'
             if (aIndex == 1) {
@@ -59,7 +61,7 @@ public class Main {
                 a = p2;
                 p2.printStatus();
             }
-            
+
             // Se 'b' ataca 'a', aparece primeiro o status de 'b'
             if (bIndex == 1) {
                 b = p1;
@@ -75,15 +77,15 @@ public class Main {
     }
 
     private static Personagem criarPersonagem(Scanner scanner) {
-        //escolhe o personagem
+        // escolhe o personagem
         int tipo = scanner.nextInt();
-        //define a saude
+        // define a saude
         double saude = scanner.nextDouble();
-        //define a forca
+        // define a forca
         double forca = scanner.nextDouble();
-        //define a destreza
+        // define a destreza
         double destreza = scanner.nextDouble();
-        //escolhe a arma
+        // escolhe a arma
         int armaTipo = scanner.nextInt();
 
         switch (tipo) {
